@@ -1,0 +1,178 @@
+<html>
+<head>
+<title>IS1113 Project</title>
+<link rel="stylesheet" type"text/css" href="mainpage.css">
+</head>
+
+<body style="background-color:cream;">
+<body>
+<style>
+     div.a{
+     text-align: center;}
+</style>
+<div class="a">
+<h1> O'Flynn Consulting - Fulfilling your consulting needs </h1>
+</div>
+
+
+
+</body>
+<style>
+ul 
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li 
+{
+float: left;
+}
+
+li a, .dropbtn 
+{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn 
+{
+  background-color: red;
+}
+
+li.dropdown 
+{
+display: inline-block;
+}
+
+.dropdown-content 
+{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a 
+{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content
+{
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="MainPage.html">Home</a></li>
+  <li><a href="Interests.html">Interests</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CV</a>
+    <div class="dropdown-content">
+      <a href="PersonalDetails.html">Personal Details</a>
+      <a href="EducationalDetails.html">Education Details</a>
+      <a href="PreviousWorkExperience.html">Previous Work Experience</a>
+    </div>
+  </li>
+  <li><a href="Consulting.html">Consulting</a></li>
+  <li><a href="Calculator.html">Calculator</a></li>
+</ul>
+</body>
+<script>
+
+function calcSubtotal()
+{
+var HyperAutomation = document.getElementById("r1").value;
+var MultiExperience = document.getElementById("r2").value;
+var DistributedCloud = document.getElementById("r3").value;
+
+if(r1.checked==true)
+document.getElementById("Subtotal").value = HyperAutomation
+else if(r2.checked==true)
+document.getElementById("Subtotal").value = MultiExperience
+else if(r3.checked==true)
+document.getElementById("Subtotal").value = DistributedCloud
+else
+alert("please selcet a service")
+}
+
+function calcDiscount()
+{
+var Subtotal = document.getElementById("Subtotal").value;
+var Discount
+parseInt(Subtotal)
+document.getElementById("Discount").value = Subtotal*0.05
+}
+
+
+function calcVAT()
+{ 
+var VAT
+var Subtotal = document.getElementById("Subtotal").value;
+document.getElementById("VAT").value = Subtotal*0.20
+}
+
+function calcTotal()
+{
+var Subtotal = document.getElementById("Subtotal").value;
+var Discount = document.getElementById("Discount").value;
+parseInt(Discount)
+var VAT = document.getElementById("VAT").value;
+parseInt(VAT)
+
+document.getElementById("Total").value = Subtotal-Discount+parseInt(VAT)
+}
+
+function calcClear()
+{
+document.getElementById('Subtotal').value=" "
+document.getElementById('Discount').value=" "
+document.getElementById('VAT').value=" "
+document.getElementById('Total').value=" "
+}
+</script>
+
+
+<center>
+<div class="form">
+ 
+     <h1 class="form">Caluculator</h1>
+	 <input id="r1" name="grp1" type="radio" value="600"/>HyperAutomation
+	     <br/>
+	 <input id="r2" name="grp1" type="radio" value="700"/>MultiExperience 
+	     <br/>
+	 <input id="r3" name="grp1" type="radio" value="800"/>DistributedCloud
+	     <br/> 
+
+     <p>Subtotal</p><input id="Subtotal" type="text" readonly />
+	     <br/>
+	 <p>Discount @ 5%</p><input id="Discount" type="text" readonly />
+	     <br/>
+     <p>VAT @ 20%</p><input id="VAT" type="text" readonly />
+	     <br/>
+     <p>Total Cost</p><input id="Total" type="text" readonly />
+	     <br/>	
+     <button onclick="calcSubtotal(), calcDiscount(), calcVAT(), calcTotal();" id="btn1">Calculate Figures</button>
+	     <br/>
+	 <button id="clear" onclick="calcClear()">Clear Selections</button>
+</div>
+</center>
+
+</html>
